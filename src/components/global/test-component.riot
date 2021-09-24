@@ -1,0 +1,21 @@
+<test-component>
+    <h1>test</h1> 
+    <script>
+        import observable from "@riotjs/observable"; 
+        
+            export default {
+                async onMounted() {
+                    const rawResponse = await fetch('https://httpbin.org/post', {
+                    method: 'POST',
+                    headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({a: 1, b: 'Textual content'})
+                });
+                const content = await rawResponse.json(); 
+                console.log(content); 
+            } 
+        } 
+    </script> 
+</test-component>
